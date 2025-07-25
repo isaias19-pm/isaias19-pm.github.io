@@ -1,0 +1,111 @@
+para mi amor mi vida ana paula
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Un Mensaje Especial para Ti</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Segoe+UI&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <h1>¡Un Poema de Amor Digital!</h1>
+        <p>con mucho amor te hago esto para ti mi bebé.</p>
+
+        <div id="lovePoemOutput">
+            </div>
+
+        <p class="signature">Espero que este detalle te saque una sonrisa.</p>
+    </div>
+
+    <script>
+        /*
+          Este es un pequeño homenaje a cómo el código, al igual que el amor,
+          puede ser elegante, complejo y, a veces, un poco inesperado.
+        */
+
+        // *** ¡IMPORTANTE! PERSONALIZA ESTO ***
+        const tuNombre = "Mi Amor"; // ¡Reemplaza esto con el nombre de tu ser querido!
+        const miNombre = "Tu Admirador Secreto"; // ¡Y esto con tu nombre!
+        // ************************************
+
+        class Sentimiento {
+          constructor(tipo, intensidad) {
+            this.tipo = tipo;
+            this.intensidad = intensidad;
+          }
+
+          expresar() {
+            if (this.intensidad > 90) {
+              return `¡Mi ${this.tipo} por ti, ${tuNombre}, es abrumadoramente inmenso! ❤️‍🔥`;
+            } else if (this.intensidad > 60) {
+              return `Siento un ${this.tipo} muy profundo por ti, ${tuNombre}. 😊`;
+            } else {
+              return `Mi ${this.tipo} por ti, ${tuNombre}, es un dulce murmullo. 🥰`;
+            }
+          }
+
+          crecer(cantidad) {
+            this.intensidad = Math.min(100, this.intensidad + cantidad);
+            // No usamos console.log aquí porque queremos que se muestre en la página
+            // console.log(`El ${this.tipo} ha crecido. Nueva intensidad: ${this.intensidad}`);
+          }
+        }
+
+        // Seleccionamos el div donde mostraremos el output
+        const outputDiv = document.getElementById('lovePoemOutput');
+
+        // Función para añadir párrafos al div de output
+        function addParagraph(text, className = '') {
+            const p = document.createElement('p');
+            p.textContent = text;
+            if (className) {
+                p.className = className;
+            }
+            outputDiv.appendChild(p);
+        }
+
+        // Inicializando los sentimientos...
+        const amor = new Sentimiento("Amor", 95);
+        const admiracion = new Sentimiento("Admiración", 88);
+        const felicidad = new Sentimiento("Felicidad", 92);
+
+        addParagraph(`${miNombre} te envía este mensaje:`);
+        addParagraph(amor.expresar(), 'highlight'); // Usamos la clase 'highlight' para el mensaje principal
+        addParagraph(admiracion.expresar());
+        addParagraph(felicidad.expresar());
+
+        // El amor, como el código, puede evolucionar
+        amor.crecer(3); // ¡Un poquito más de amor cada día!
+        // Podemos añadir un mensaje sobre el crecimiento si quieres:
+        // addParagraph(`El amor ha crecido un poco más. Nueva intensidad: ${amor.intensidad}`);
+
+        addParagraph("Un pequeño extra:");
+
+        function despertarPensamiento(nombre) {
+          return `Cada línea de mi código, cada pensamiento, me lleva a ti, ${nombre}.`;
+        }
+        addParagraph(despertarPensamiento(tuNombre));
+
+        function recordarMomento(descripcion) {
+          return `Recordando el momento cuando ${descripcion}. Es un "bug" hermoso en mi memoria. 😉`;
+        }
+        addParagraph(recordarMomento("te vi por primera vez"));
+
+        // Mensaje final personalizado
+        const finalSignature = document.createElement('p');
+        finalSignature.className = 'signature';
+        finalSignature.innerHTML = `<strong>Eres la sintaxis perfecta en el algoritmo de mi vida.</strong><br>- ${miNombre}`;
+        outputDiv.appendChild(finalSignature);
+
+        /*
+          Aunque este es solo un código, espero que te saque una sonrisa.
+          Eres la sintaxis perfecta en el algoritmo de mi vida.
+        */
+    </script>
+
+</body>
+</html>
